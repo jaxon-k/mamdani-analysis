@@ -2,11 +2,12 @@
 
 A precinct-level analysis of Zohran Mamdani's performance in the 2026 New York City Democratic mayoral primary, examining the demographic and partisan drivers of his vote share across New York City's election districts.
 
+# Github repo link: https://github.com/jaxon-k/mamdani-analysis
 ---
 
 ## Project Overview
 
-This project was completed as a technical assessment for VoteHub. The central question: **what explains Mamdani's vote share at the precinct level, and where did he over- or underperform relative to expectations?**
+This project was completed as a technical assessment. The central question: **what explains Mamdani's vote share at the precinct level, and where did he over- or underperform relative to expectations?**
 
 The analysis proceeds in four stages:
 
@@ -29,8 +30,6 @@ The dataset is a **GeoJSON FeatureCollection** of 3,991 election district polygo
 | **Age distribution** | Estimated population by 5-year age band (2022 ACS, `X_22_2022_Age_Expanded_*`) |
 | **Socioeconomic** | Median income (`med_ncm`), college attainment (`bch_pl_`) |
 | **Geography** | Assembly District (`ad`), Election District (`ed`), County, precinct ID, and MultiPolygon geometry |
-
-> **Note:** The raw GeoJSON file is not included in this repository as it contains proprietary VoteHub data. The notebook documents all field names and transformations applied.
 
 ---
 
@@ -58,15 +57,6 @@ Model performance is evaluated on a held-out test set (80/20 split) using RMSE a
 - **Whiter precincts trended away from Mamdani** — a negative relationship was visible across the scatter plots, consistent with Cuomo's stronger performance in moderate and white Democratic neighborhoods
 - **Black and Hispanic precincts showed no clear linear relationship** — suggesting more heterogeneous support patterns in these communities that a simple linear model does not fully capture
 - **Assembly District 26 (Queens)** was among the strongest underperformers relative to the Democratic baseline, consistent with Cuomo's dominance in moderate outer-borough precincts
-
----
-
-## Limitations & Future Work
-
-- **Asian subgroup aggregation** — combining all Asian ethnicities into one category obscures meaningful variation. Mamdani's South Asian heritage likely drove concentrated support within South Asian communities specifically, which is invisible in aggregate
-- **Religion** — religious demographics are absent from the dataset but were central to the race. Mamdani's Muslim faith and position on Gaza generated both enthusiasm and opposition in ways that geographic and racial proxies cannot fully capture
-- **Income and education** — median income and college attainment are available in the dataset but were not included in the final model; both are likely significant predictors in a city as economically stratified as New York
-- **Ecological inference problem** — all analysis is at the precinct level; individual-level conclusions should be drawn carefully
 
 ---
 
